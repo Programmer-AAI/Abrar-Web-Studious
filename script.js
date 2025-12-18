@@ -197,7 +197,7 @@ function confirmAndSendBrief() {
   <p><strong>Pages:</strong> ${pages}</p>
   <p><strong>Content Ready:</strong> ${content}</p>
   <p><strong>Features:</strong> ${features.join(", ") || "None"}</p>
-  <p><strong>Notes:</strong> ${notes || "N/A"}</p>
+  <p><strong>Notes:</strong> ${notes || "Not Avalable"}</p>
 `;
     }
 
@@ -631,3 +631,31 @@ setInterval(() => {
   showReview((reviewIndex + 1) % reviews.length);
 }, 5000);
 
+
+
+
+// FAQ Functionality
+function initFAQ() {
+  const faqItems = document.querySelectorAll('.faq-item');
+  
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    
+    question.addEventListener('click', () => {
+      // Close other open items
+      faqItems.forEach(otherItem => {
+        if (otherItem !== item && otherItem.classList.contains('active')) {
+          otherItem.classList.remove('active');
+        }
+      });
+      
+      // Toggle current item
+      item.classList.toggle('active');
+    });
+  });
+}
+
+// Call this when page loads
+document.addEventListener('DOMContentLoaded', function() {
+  initFAQ();
+});
