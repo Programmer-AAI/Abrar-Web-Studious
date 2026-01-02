@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      :root {
+        --clr-primary: var(--blue);
+        --bg-light: #f9f8f6;
+        --bg-secondary: #efe9e3;
+        --text-dark: #435663;
+        --blue: #0974bb;
+        --white: #ffffff;
+        --shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+      body {
+        background-color: var(--bg-secondary);
+      }
+      h1{
+        font-size: 3rem;
+        margin-top: 15rem;
+        /* margin-bottom: 10rem; */
+        padding-bottom: 5rem;
+        color: #435663 !important;
+      }
+      .tri-img {
+        column-count: 3;
+        column-gap: 2rem;
+      }
+
+      .tri-img img {
+        width: 100%;
+        margin-bottom: 2rem;
+        border-radius: 10px;
+        border: 2px solid black;
+        break-inside: avoid;
+      }
+      .tri-img img {
+        cursor: pointer;
+      }
+      .tri-img:not(.show-all) .img-card:nth-child(n + 4) {
+        display: none;
+      }
+
+      .tri-img.show-all img {
+        display: block;
+      }
+      .see-more {
+        display: block;
+        margin: 2rem auto;
+        padding: 12px 30px;
+        font-size: 1.2rem;
+        border-radius: 8px;
+        border: none;
+        background: black;
+        color: white;
+        cursor: pointer;
+      }
+      .lightbox {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.85);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+      }
+
+      .lightbox img {
+        max-width: 90%;
+        max-height: 90%;
+        border-radius: 10px;
+      }
+
+      .lightbox .close {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        font-size: 3rem;
+        color: white;
+        cursor: pointer;
+      }
+      .see-more {
+        transition: background 0.3s ease, transform 0.2s ease;
+      }
+
+      .see-more:hover {
+        transform: scale(1.05);
+      }
+
+      @media (max-width: 768px) {
+        .tri-img {
+          column-count: 1;
+        }
+      }
+      .img-card {
+        position: relative;
+        margin-bottom: 2rem;
+        break-inside: avoid;
+      }
+
+      .img-card img {
+        width: 100%;
+        display: block;
+        border-radius: 10px;
+        border: 2px solid black;
+        cursor: pointer;
+      }
+      .img-info {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 0.9rem 1rem;
+        background: rgba(0, 0, 0, 0.75);
+        color: white;
+        border-radius: 0 0 10px 10px;
+        opacity: 0;
+        transition: 0.3s ease;
+        pointer-events: none;
+      }
+
+      .img-card:hover .img-info {
+        opacity: 1;
+      }
+
+      .img-card:hover .img-info {
+        opacity: 1;
+      }
+
+      .img-info h4 {
+        font-size: 1.2rem;
+        margin-bottom: 0.2rem;
+        color: #ffffff;
+      }
+
+      .img-info p {
+        font-size: 0.9rem;
+        opacity: 0.85;
+        color: #f9f8f6;
+      }
+      .lightbox-content {
+        text-align: center;
+        color: white;
+        max-width: 90%;
+        height: 70vh;
+        align-self: center;
+      }
+
+      .lightbox-content h3 {
+        margin-top: 1rem;
+        font-size: 1.6rem;
+      }
+
+      .lightbox-content p {
+        margin-top: 0.5rem;
+        opacity: 0.8;
+        color: white;
+      }
+      .img-info {
+        transform: translateY(10px);
+      }
+
+      .img-card:hover .img-info {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <img src="images/logo.png" class="logo" alt="Logo">
+
+      <div class="menu-toggle" id="menuToggle">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+
+      <div class="nav-links" id="navLinks">
+        <a href="index.html#t-c">Home</a>
+        <a href="index.html">Services</a>
+        <a href="index.html#pricing">pricing</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#contact">contact</a>
+        <a href="index.html#reviews">Reviews</a>
+        <a href="index.html#faq">FAQ</a>
+      </div>
+      <div class="nav-buttons" id="navButtons">
+        <a href="index.html#home" class="btn btn-primary a">BACK TO MAIN PAGE</a>
+      </div>
+    </nav>
+    <h1>Our Gallery</h1>
+    <div class="tri-img" id="gallery">
+      <div class="img-card">
+        <img
+          src="posts/post-1.png"
+          data-title="Creative Branding"
+          data-desc="Modern identity design for startups"
+        />
+        <div class="img-info">
+          <h4>Creative Branding</h4>
+          <p>Modern identity design</p>
+        </div>
+      </div>
+
+      <div class="img-card">
+        <img
+          src="images/logo2.png"
+          data-title="Our Logo"
+          data-desc="Satisfied Many User"
+        />
+        <div class="img-info">
+          <h4>Our Logo</h4>
+          <p>Satisfied Many User</p>
+        </div>
+      </div>
+
+      <div class="img-card">
+        <img
+          src="posts/post-3.webp"
+          data-title="Creative Branding"
+          data-desc="Modern identity design for startups"
+        />
+        <div class="img-info">
+          <h4>Creative Branding</h4>
+          <p>Modern identity design</p>
+        </div>
+      </div>
+
+      <div class="img-card">
+        <img
+          src="images/pexels-pixabay-265087.jpg"
+          data-title="Creative Branding"
+          data-desc="Modern identity design for startups"
+        />
+        <div class="img-info">
+          <h4>Creative Branding</h4>
+          <p>Modern identity design</p>
+        </div>
+      </div>
+
+      <div class="img-card">
+        <img
+          src="images/pexels-pixabay-265087.jpg"
+          data-title="Creative Branding"
+          data-desc="Modern identity design for startups"
+        />
+        <div class="img-info">
+          <h4>Creative Branding</h4>
+          <p>Modern identity design</p>
+        </div>
+      </div>
+
+      <div class="img-card">
+        <img
+          src="images/pexels-pixabay-265087.jpg"
+          data-title="Creative Branding"
+          data-desc="Modern identity design for startups"
+        />
+        <div class="img-info">
+          <h4>Creative Branding</h4>
+          <p>Modern identity design</p>
+        </div>
+      </div>
+
+      <!-- repeat same pattern -->
+    </div>
+    <button class="see-more" id="toggleGalleryBtn">See More</button>
+    <div class="lightbox" id="lightbox">
+      <span class="close">&times;</span>
+
+      <div class="lightbox-content">
+        <img id="lightboxImg" />
+        <h3 id="lightboxTitle"></h3>
+        <p id="lightboxDesc"></p>
+      </div>
+    </div>
+    <h1>Thanks for Exploring About Us<a href="index.html#home"> WANNA GO BACK</a></h1>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightboxImg");
+        const closeBtn = document.querySelector(".close");
+        const toggleBtn = document.getElementById("toggleGalleryBtn");
+        const gallery = document.getElementById("gallery");
+
+        const images = document.querySelectorAll(".img-card img");
+        const lightboxTitle = document.getElementById("lightboxTitle");
+        const lightboxDesc = document.getElementById("lightboxDesc");
+
+        /* Image popup */
+        images.forEach((img) => {
+          img.addEventListener("click", () => {
+            lightbox.style.display = "flex";
+            lightboxImg.src = img.src;
+            lightboxTitle.textContent = img.dataset.title;
+            lightboxDesc.textContent = img.dataset.desc;
+          });
+        });
+
+        closeBtn.onclick = () => {
+          lightbox.style.display = "none";
+        };
+
+        lightbox.onclick = (e) => {
+          if (e.target !== lightboxImg) {
+            lightbox.style.display = "none";
+          }
+        };
+
+        /* Show / Hide toggle */
+        toggleBtn.onclick = () => {
+          gallery.classList.toggle("show-all");
+
+          if (gallery.classList.contains("show-all")) {
+            toggleBtn.textContent = "Hide";
+          } else {
+            toggleBtn.textContent = "See More";
+            gallery.scrollIntoView({ behavior: "smooth" });
+          }
+        };
+      });
+    </script>
+  </body>
+</html>

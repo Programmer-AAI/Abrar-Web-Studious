@@ -316,7 +316,7 @@ body.dark-mode .sub-nav-links a {
 .showcase {
     grid-area: showcase;
     background: url("images/show-image.jpg") center/cover no-repeat;
-    min-height: 420px;
+    min-height: 60vh;
     padding: 3rem;
     box-shadow: var(--shadow);
     display: flex;
@@ -325,6 +325,7 @@ body.dark-mode .sub-nav-links a {
     align-items: flex-start;
     gap: 1rem;
     width: 100%;
+    margin-top: 2rem;
 }
 
 .showcase h1 {
@@ -2451,7 +2452,7 @@ li{
         padding: 1.5rem;
     }
     .showcase{
-      min-height: 40vh;
+      min-height: 67vh;
     }
     
     .showcase h1 {
@@ -2475,3 +2476,5 @@ li{
 #previewContent.active{
   color: black;
 }
+
+
