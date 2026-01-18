@@ -687,7 +687,7 @@ body.dark-mode .sub-nav-links a {
   .service-slide {
     flex: 0 0 calc(50% - 0.625rem); /* Show 2 cards on tablet */
   }
-  
+  z
   .box,
   .service-card {
     min-height: 22.5rem; /* 360px */
@@ -2547,4 +2547,20 @@ li{
 }
 section {
   margin: 4rem 0;
+}
+@media(max-width: 1260px){
+  .header {
+        padding-top: 100px;
+    }
+    
+    .navbar {
+        padding: 0.8rem 1.5rem;
+    }
+    
+    .logo {
+        height: 55px;
+    }
+    .sub-navbar{
+      margin-top: -.4rem;
+    }
 }
