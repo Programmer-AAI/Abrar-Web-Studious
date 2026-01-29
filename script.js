@@ -260,8 +260,8 @@ Thank you.`;
 setTimeout(() => {
   hideStepBar();
   clearStepProgress();
+  localStorage.clear(); // 👈 ADD THIS
 }, 1500);
-
 }
 
 function resetForm() {
@@ -658,4 +658,43 @@ function initFAQ() {
 // Call this when page loads
 document.addEventListener('DOMContentLoaded', function() {
   initFAQ();
+});
+
+// ================= SAVE & RESTORE BRIEF FORM =================
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("briefForm");
+  if (!form) return;
+
+  const inputs = form.querySelectorAll("input, select, textarea");
+
+  // 🔹 Restore saved data on load
+  inputs.forEach(input => {
+    const key = input.id || input.name;
+    const savedValue = localStorage.getItem(key);
+
+    if (savedValue !== null) {
+      if (input.type === "checkbox") {
+        input.checked = savedValue === "true";
+      } else {
+        input.value = savedValue;
+      }
+
+      // Show form if user already started
+      document.getElementById("briefStart").style.display = "none";
+      form.style.display = "block";
+    }
+  });
+
+  // 🔹 Save data on typing
+  inputs.forEach(input => {
+    input.addEventListener("input", () => {
+      const key = input.id || input.name;
+
+      if (input.type === "checkbox") {
+        localStorage.setItem(key, input.checked);
+      } else {
+        localStorage.setItem(key, input.value);
+      }
+    });
+  });
 });
