@@ -1,3 +1,10 @@
+/* :root {
+  --clr-bg: #ffffff;
+  --clr-bg-alt: #f3f4f6;
+  --clr-text-muted: #6b7280;
+  --clr-text: #435663;
+} */
+
 @media (max-width: 480px) {
   .services-carousel-container {
     padding: 0 30px;
@@ -36,12 +43,19 @@ body.dark-mode {
   --blue: #2563eb;
   --shadow: 0 10px 30px rgba(0,0,0,0.6);
 }
-* {
+/* * {
+  transition: background-color 0.3s ease,
+              color 0.3s ease,
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
+} */
+ body, .box, .service-card, .navbar, .btn {
   transition: background-color 0.3s ease,
               color 0.3s ease,
               border-color 0.3s ease,
               box-shadow 0.3s ease;
 }
+
 body.dark-mode .navbar {
   background: #020617;
 }
@@ -63,10 +77,10 @@ body.dark-mode .project-brief .container {
   color: #e5e7eb;
 }
 
-body.dark-mode .section-desc,
-body.dark-mode p {
+body.dark-mode .section-desc, body.dark-mode p {
   color: #cbd5f5;
 }
+
 
 body.dark-mode .carousel-nav-btn {
   background: #020617;
@@ -105,8 +119,11 @@ body.dark-mode .theme-toggle {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    text-transform: capitalize;
 }
+h1, h2, h3, h4, .btn {
+  text-transform: capitalize;
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 140px;
@@ -687,7 +704,7 @@ body.dark-mode .sub-nav-links a {
   .service-slide {
     flex: 0 0 calc(50% - 0.625rem); /* Show 2 cards on tablet */
   }
-  z
+
   .box,
   .service-card {
     min-height: 22.5rem; /* 360px */
@@ -2563,4 +2580,81 @@ section {
     .sub-navbar{
       margin-top: -.4rem;
     }
+}
+
+
+
+
+.pricing-comparison {
+  margin-top: 60px;
+  text-align: center;
+}
+
+.pricing-comparison h3 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.comparison-table th,
+.comparison-table td {
+  padding: 15px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.comparison-table th{
+  background: #111;
+  color: white;
+}
+
+
+.comparison-table tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+.comparison-table td:first-child {
+  font-weight: bold;
+  text-align: left;
+}
+.carousel-nav-btn {
+  min-width: 44px;
+  min-height: 44px;
+}
+@media (max-width: 480px) {
+  .showcase {
+    min-height: auto;
+  }
+}
+button:focus,
+a:focus {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+.step-progress-wrapper {
+  will-change: bottom;
+}
+
+body.dark-mode table,
+body.dark-mode .comparison-table {
+  background: #111827 !important;
+  color: #e5e7eb !important;
+  border-color: #1f2933;
+}
+body.dark-mode table tr:nth-child(even) {
+  background: #111827;
+}
+
+body.dark-mode table tr:nth-child(odd) {
+  background: #1f2933;
 }

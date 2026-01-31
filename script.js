@@ -698,3 +698,16 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+function toggleComparison() {
+  const section = document.getElementById("comparisonSection");
+  const btn = document.getElementById("compareBtn");
+
+  if (section.style.display === "none") {
+    section.style.display = "block";
+    btn.textContent = "Hide Comparison";
+    section.scrollIntoView({ behavior: "smooth" });
+  } else {
+    section.style.display = "none";
+    btn.textContent = "View Comparison";
+  }
+}
