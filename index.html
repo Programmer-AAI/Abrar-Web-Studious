@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
   <meta name="description"
     content="Professional web development services in Bangladesh. Fast, modern and responsive websites.">
@@ -47,7 +47,7 @@
       </div>
 
       <div class="nav-links" id="navLinks">
-        <a href="#home">Home</a>
+        <a href="#t-c">Home</a>
         <a href="#services">Services</a>
         <a href="#pricing">pricing</a>
         <a href="#projects">Projects</a>
@@ -67,7 +67,7 @@
     <li><a href="policies.html">policies</a></li>
     <li><a href="#process">Process</a></li>
     <li><a href="#pricing">Plans</a></li>
-    <li><a href="#hosting">Hostings</a></li>
+    <li><a href="#pricing" onclick="openHostingModal()">Hostings</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -148,7 +148,7 @@
 
 
  <section id="services">
-  <h1>Our <span class="highlight">Services</span></h1>
+  <h1 class="section-title">Our <span class="highlight">Services</span></h1>
   <p class="section-subtitle">
     Professional web solutions designed to help your business grow, convert, and scale.
   </p>
@@ -277,7 +277,7 @@
   <!-- process section -->
    <section class="process-section" id="process">
   <div class="section-header">
-    <h2>Our Work <span class="highlight">Process</span></h2>
+    <h2 class="section-titles">Our Work <span class="highlight">Process</span></h2>
     <p class="section-subtitle">
       A simple, transparent workflow designed for clarity and results.
     </p>
@@ -329,7 +329,7 @@
 
 <section class="pricing" id="pricing">
   <div class="pricing-header">
-    <h2>Website Development <span class="highlight">Packages</span></h2>
+    <h2 class="section-titles">Website Development <span class="highlight">Packages</span></h2>
     <p>
       One-time website design & development with transparent scope and no hidden costs.
       Hosting and domain are optional and billed separately — you stay in control.
@@ -375,7 +375,7 @@
         <li>✔ 7 days support</li>
       </ul>
 
-      <button class="btn btn-primary" onclick="selectPlan('Starter Lite – ৳5,000+')">
+      <button class="btn btn-primary" onclick="selectPlan('Starter Lite – ৳6,500+')">
         Choose Plan
       </button>
     </div>
@@ -396,7 +396,7 @@
         <li>✔ 7 days support</li>
       </ul>
 
-      <button class="btn btn-primary" onclick="selectPlan('Starter – ৳8,000+')">
+      <button class="btn btn-primary" onclick="selectPlan('Starter – ৳9,999+')">
         Choose Plan
       </button>
     </div>
@@ -419,7 +419,7 @@
         <li>✔ 30 days priority support</li>
       </ul>
 
-      <button class="btn btn-primary" onclick="selectPlan('Business – ৳15,000+')">
+      <button class="btn btn-primary" onclick="selectPlan('Business – ৳14,999+')">
         Choose Plan
       </button>
     </div>
@@ -567,7 +567,77 @@
 </div>
 
   <!-- Hosting & Maintenance -->
-  <div class="hosting-section" id="hosting">
+<div style="text-align:center; margin-top:40px;">
+  <button class="btn btn-secondary" onclick="openHostingModal()">
+    View Hosting Plans
+  </button>
+</div>
+
+
+
+
+
+
+
+<!-- HOSTING MODAL -->
+<div id="hostingModal" class="hosting-modal">
+  <div class="hosting-modal-content">
+
+    <span class="close-modal" onclick="closeHostingModal()">&times;</span>
+
+    <h2>🚀 Hosting & Maintenance Plans</h2>
+    <p class="subtitle">
+      Keep your website fast, secure, and worry-free.
+    </p>
+
+    <div class="hosting-plans">
+
+      <div class="hosting-plan">
+        <h4>Basic Care</h4>
+        <p class="price">৳500 <span>/month</span></p>
+        <ul>
+          <li>✔ Reliable hosting</li>
+          <li>✔ SSL certificate</li>
+          <li>✔ Weekly backups</li>
+          <li>✔ Basic security</li>
+          <li>✔ Support (business hours)</li>
+        </ul>
+      </div>
+
+      <div class="hosting-plan popular">
+        <span class="badge">Recommended</span>
+        <h4>Business Care</h4>
+        <p class="price">৳800 <span>/month</span></p>
+        <ul>
+          <li>✔ Premium hosting</li>
+          <li>✔ Daily backups</li>
+          <li>✔ Malware protection</li>
+          <li>✔ Monthly updates</li>
+          <li>✔ Priority support</li>
+        </ul>
+      </div>
+
+      <div class="hosting-plan">
+        <h4>Self-Hosted</h4>
+        <p class="price">৳2,000 setup</p>
+        <ul>
+          <li>✔ Hosting guidance</li>
+          <li>✔ Transfer & setup</li>
+          <li>✔ 1-hour training</li>
+          <li>✘ No maintenance</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <p class="note">
+      Domain: .com (৳1,200/yr) • .com.bd (৳2,000/yr)
+    </p>
+
+  </div>
+</div>
+
+  <!-- <div class="hosting-section" id="hosting">
     <h3 style="color: black; font-size: 1.5rem;">🚀 Hosting & Maintenance Plans</h3>
     <p class="subtitle" style="color: white;">
       Keep your website fast, secure, and worry-free — we handle the technical side.
@@ -620,9 +690,8 @@
       📝 <strong>Domain Name:</strong>
       .com (৳1,200/year) or .com.bd (৳2,000/year) — purchased separately
     </p>
-  </div>
+  </div> -->
 
-  <a href="#process" class="random">View our work process</a>
   <a href="#faq" class="btn btn-secondary random" style="background-color: aliceblue; color: black;">
     Still have questions?
   </a>
@@ -660,7 +729,7 @@
   <section class="contact" id="contact">
     <div class="container">
 
-      <h2 class="section-title">Contact <span class="highlight">us</span></h2>
+      <h2 class="section-titles">Contact <span class="highlight">us</span></h2>
       <p class="section-subtitle">Have a project in mind? Let’s discuss how we can bring it online.</p>
 
       <div class="contact-container">
@@ -953,7 +1022,7 @@
           <select id="SiteType" required>
             <option value="">Select Your plan</option>
             <option value="One Page">One Page</option>
-            <option value="Basic">Basic</option>
+            <option value="Starter Light">Starter Light</option>
             <option value="Starter">Starter</option>
             <option value="Business">Business</option>
             <option value="Premium">Premium</option>
@@ -1138,7 +1207,7 @@
     <div class="faq-item">
       <button class="faq-question">
         <span>Can I update the website myself?</span>
-        <i class="fa-chevron-down"></i>
+        <i class="fas fa-chevron-down"></i>
       </button>
       <div class="faq-answer">
         <p>Yes! We offer two options:</p>
@@ -1324,7 +1393,49 @@
     document.getElementById("year").textContent = new Date().getFullYear();
 
   </script>
+<script>
+function openHostingModal(){
+  const modal = document.getElementById("hostingModal");
+  modal.style.display="block";
 
+  setTimeout(()=>{
+    modal.classList.add("show");
+  },10);
+}
+
+function closeHostingModal(){
+  const modal = document.getElementById("hostingModal");
+  modal.classList.remove("show");
+
+  setTimeout(()=>{
+    modal.style.display="none";
+  },300);
+}
+
+/* Close when clicking backdrop */
+window.onclick = function(e){
+  const modal = document.getElementById("hostingModal");
+  if(e.target === modal){
+    closeHostingModal();
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebDesignBusiness",
+  "name": "Abrar Web Studios",
+  "description": "Professional web development services in Bangladesh",
+  "url": "https://yourdomain.com",
+  "telephone": "+8801330910019",
+  "address": {
+    "@type": "PostalAddress",
+    "addressRegion": "Chattogram",
+    "addressCountry": "Bangladesh"
+  }
+}
+</script>
 
   <script src="script.js"></script>
 </body>

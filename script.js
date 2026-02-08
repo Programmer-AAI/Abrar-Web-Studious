@@ -237,7 +237,7 @@ Please let me know the next steps.
 Thank you.`;
 
 
-    const phone = "8801330910019";
+    const phone = "+8801330910019";
     const encodedMessage = encodeURIComponent(message);
     const url = `https://wa.me/${phone}?text=${encodedMessage}`;
     
@@ -713,3 +713,5 @@ function toggleComparison() {
     btn.textContent = "View Comparison";
   }
 }
+
+
